@@ -61,6 +61,12 @@ https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/he
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Desktop]-WhiteList-01.yaml|THEYAMLS/General_Config/Accademia/[Desktop]-WhiteList-01.yaml
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Desktop]-WhiteList-02-Min.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[Desktop]-WhiteList-02-Min.AntiAD.yaml
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Desktop]-WhiteList-03-Non.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[Desktop]-WhiteList-03-Non.AntiAD.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Mobile]-WhiteList-01.yaml|THEYAMLS/General_Config/Accademia/[Mobile]-WhiteList-01.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Mobile]-WhiteList-02-Min.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[Mobile]-WhiteList-02-Min.AntiAD.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[Mobile]-WhiteList-03-Non.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[Mobile]-WhiteList-03-Non.AntiAD.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-01.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-01.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-02-Min.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-02-Min.AntiAD.yaml
+https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-03-Non.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-03-Non.AntiAD.yaml
 EOF
 )
 
