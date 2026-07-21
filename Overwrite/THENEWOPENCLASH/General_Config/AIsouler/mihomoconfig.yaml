@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomoconfig.yaml
-# 生成日期：2026-07-05
+# 生成日期：2026-07-21
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -85,7 +85,7 @@
 # proxy-providers:
 #   provider1:
 #     age-secret-key: ''
-#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|⚠️|@|Expire|http|com
+#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置|以下|⚠️|@|Expire|http|com
 #     health-check:
 #       enable: true
 #       interval: 600
@@ -94,7 +94,7 @@
 #     interval: 86400
 #     override:
 #       additional-prefix: 'p1 | '
-#     path: ./proxy_providers/provider1.yaml
+#     path: ./proxy_provider/provider1.yaml
 #     proxy: DIRECT
 #     type: http
 #     url: ''
@@ -122,9 +122,21 @@
 #   - 台湾省
 #   - 低倍率节点
 #   - 高倍率节点
+#   - 手动选择
 #   - 自动选择
 #   - 负载均衡
 #   - 其他节点
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - empty-fallback: REJECT
+#   exclude-type: DIRECT
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
+#   include-all: true
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: 手动选择
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -163,6 +175,7 @@
 #   name: AI
 #   proxies: &id001
 #   - 默认代理
+#   - 手动选择
 #   - 自动选择
 #   - 负载均衡
 #   - 香港
@@ -176,7 +189,8 @@
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
+# - default-selected: 日本
+#   empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
 #   interval: 600
 #   lazy: true
@@ -195,6 +209,7 @@
 #   name: FCM
 #   proxies: &id002
 #   - 默认代理
+#   - 手动选择
 #   - 自动选择
 #   - 负载均衡
 #   - 直连
@@ -215,16 +230,6 @@
 #   lazy: true
 #   max-failed-times: 3
 #   name: Google
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: GitHub
 #   proxies: *id001
 #   timeout: 3000
 #   type: select
@@ -301,6 +306,16 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
+#   icon: https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/03CNSoft/pikpak.png
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: PikPak
+#   proxies: *id002
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
 #   interval: 600
 #   lazy: true
@@ -324,6 +339,18 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: 漏网之鱼
+#   proxies:
+#   - 默认代理
+#   - 直连
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png
 #   interval: 600
 #   lazy: true
@@ -337,18 +364,6 @@
 #   type: select
 #   url: https://connectivitycheck.platform.hicloud.com/generate_204
 # - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 漏网之鱼
-#   proxies:
-#   - 默认代理
-#   - 直连
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: 🇭🇰|港|HK|[Hh]ong\s*[Kk]ong
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
 #   include-all: true
@@ -358,7 +373,6 @@
 #   name: 香港
 #   proxies:
 #   - 香港-自动选择
-#   - 香港-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -377,20 +391,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: 🇭🇰|港|HK|[Hh]ong\s*[Kk]ong
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 香港-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: 🇯🇵|日本|JP|[Jj]apan
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
 #   include-all: true
@@ -400,7 +400,6 @@
 #   name: 日本
 #   proxies:
 #   - 日本-自动选择
-#   - 日本-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -419,20 +418,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: 🇯🇵|日本|JP|[Jj]apan
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 日本-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: 🇺🇸|美|US|[Aa]merica|[Uu]nited\s*[Ss]tates
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
 #   include-all: true
@@ -442,7 +427,6 @@
 #   name: 美国
 #   proxies:
 #   - 美国-自动选择
-#   - 美国-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -461,20 +445,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: 🇺🇸|美|US|[Aa]merica|[Uu]nited\s*[Ss]tates
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 美国-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: 🇸🇬|新加坡|狮城|SG|[Ss]ingapore
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
 #   include-all: true
@@ -484,7 +454,6 @@
 #   name: 新加坡
 #   proxies:
 #   - 新加坡-自动选择
-#   - 新加坡-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -503,20 +472,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: 🇸🇬|新加坡|狮城|SG|[Ss]ingapore
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 新加坡-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: 🇹🇼|台湾|TW|[Tt]aiwan
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
 #   include-all: true
@@ -526,7 +481,6 @@
 #   name: 台湾省
 #   proxies:
 #   - 台湾省-自动选择
-#   - 台湾省-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -545,20 +499,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: 🇹🇼|台湾|TW|[Tt]aiwan
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 台湾省-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: ^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png
 #   include-all: true
@@ -568,7 +508,6 @@
 #   name: 低倍率节点
 #   proxies:
 #   - 低倍率节点-自动选择
-#   - 低倍率节点-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -587,20 +526,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: ^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 低倍率节点-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   filter: (?u)(?:[*×xX✕✖⨉]\s*(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?)|(?:(?<![\d.])(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?\s*(?:倍|[*×xX✕✖⨉]))
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
 #   include-all: true
@@ -610,7 +535,6 @@
 #   name: 高倍率节点
 #   proxies:
 #   - 高倍率节点-自动选择
-#   - 高倍率节点-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -629,20 +553,6 @@
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   exclude-type: DIRECT
-#   filter: (?u)(?:[*×xX✕✖⨉]\s*(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?)|(?:(?<![\d.])(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?\s*(?:倍|[*×xX✕✖⨉]))
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 高倍率节点-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   exclude-filter: 港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|台湾|TW|🇹🇼
 #   exclude-type: DIRECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png
@@ -653,7 +563,6 @@
 #   name: 其他节点
 #   proxies:
 #   - 其他节点-自动选择
-#   - 其他节点-负载均衡
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -670,20 +579,6 @@
 #   timeout: 3000
 #   tolerance: 50
 #   type: url-test
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
-#   exclude-filter: 港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|台湾|TW|🇹🇼
-#   exclude-type: DIRECT
-#   hidden: true
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
-#   include-all: true
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 其他节点-负载均衡
-#   strategy: sticky-sessions
-#   timeout: 3000
-#   type: load-balance
 #   url: https://g.cn/generate_204
 
 # ==========================================================
@@ -902,6 +797,14 @@
 #     path-in-bundle: geo/geosite/nvidia@cn.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs
+#   pikpak:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/pikpak.mrs
+#     path-in-bundle: geo/geosite/pikpak.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pikpak.mrs
 #   pornhub:
 #     behavior: domain
 #     format: mrs
@@ -1034,7 +937,7 @@
 # - RULE-SET,pornhub,Media
 # - RULE-SET,googlefcm,FCM
 # - RULE-SET,google,Google
-# - RULE-SET,github,GitHub
+# - RULE-SET,github,默认代理
 # - RULE-SET,microsoft,Microsoft
 # - RULE-SET,apple,Apple
 # - RULE-SET,telegram,Telegram
@@ -1044,6 +947,7 @@
 # - RULE-SET,emby,Emby
 # - DOMAIN-SUFFIX,mb3admin.com,Emby
 # - DOMAIN-KEYWORD,emby,Emby
+# - RULE-SET,pikpak,PikPak
 # - RULE-SET,spotify,Spotify
 # - RULE-SET,google_ip,Google,no-resolve
 # - RULE-SET,telegram_ip,Telegram,no-resolve

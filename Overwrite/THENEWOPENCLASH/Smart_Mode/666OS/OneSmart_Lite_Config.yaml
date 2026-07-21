@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - OneSmart_Lite_Config.yaml
-# 生成日期：2026-07-05
+# 生成日期：2026-07-21
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/Smart_Mode/666OS/OneSmart_Lite_Config.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -409,7 +409,6 @@
 # ==========================================================
 #
 # rules:
-# - AND,((DST-PORT,443),(NETWORK,UDP),(NOT,((GEOIP,CN,no-resolve)))),REJECT
 # - RULE-SET,Private,直接连接
 # - RULE-SET,Direct,直接连接
 # - RULE-SET,XPTV,直接连接

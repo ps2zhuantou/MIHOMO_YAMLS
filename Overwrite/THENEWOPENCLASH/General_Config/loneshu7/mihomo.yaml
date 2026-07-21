@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomo.yaml
-# 生成日期：2026-07-05
+# 生成日期：2026-07-21
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/loneshu7/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -107,21 +107,21 @@
 #     health-check: *id001
 #     interval: 43200
 #     override:
-#       additional-prefix: 机场标识
+#       additional-prefix: 机场1-
 #     path: ./proxy_provider/providers_1.yaml
 #     proxy: Proxies
 #     type: http
-#     url: 在此填入第1个机场的订阅链接(Clash/mihomo 格式)
+#     url: 在此填入第1个机场的订阅链接
 #   机场2:
 #     filter: ^(?!.*(?i)(?:NEVER_MATCH)).*$
 #     health-check: *id001
 #     interval: 43200
 #     override:
-#       additional-prefix: 机场标识
+#       additional-prefix: 机场2-
 #     path: ./proxy_provider/providers_2.yaml
 #     proxy: Proxies
 #     type: http
-#     url: 在此填入第2个机场的订阅链接(Clash/mihomo 格式)
+#     url: 在此填入第2个机场的订阅链接
 
 # ==========================================================
 # proxy-groups（从源文件直接提取）
@@ -144,6 +144,8 @@
 #   - 🟦手动选择
 #   - 🔶自动选择
 #   - 🔷自动选择
+#   - 🔸负载均衡
+#   - 🔹负载均衡
 #   - 📋自动全部
 #   - 📋回退全部
 #   - 🧩自动其他
@@ -209,6 +211,34 @@
 #   - 🇫🇷自动选择
 #   - 🇩🇪自动选择
 #   type: select
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png
+#   name: 🔸负载均衡
+#   proxies:
+#   - 🇭🇰负载均衡
+#   - 🇸🇬负载均衡
+#   - 🇺🇸负载均衡
+#   - 🇹🇼负载均衡
+#   - 🇯🇵负载均衡
+#   - 🇰🇷负载均衡
+#   - 🇦🇺负载均衡
+#   - 🇬🇧负载均衡
+#   - 🇫🇷负载均衡
+#   - 🇩🇪负载均衡
+#   type: select
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin_1.png
+#   name: 🔹负载均衡
+#   proxies:
+#   - 🇭🇰负载均衡
+#   - 🇸🇬负载均衡
+#   - 🇺🇸负载均衡
+#   - 🇹🇼负载均衡
+#   - 🇯🇵负载均衡
+#   - 🇰🇷负载均衡
+#   - 🇦🇺负载均衡
+#   - 🇬🇧负载均衡
+#   - 🇫🇷负载均衡
+#   - 🇩🇪负载均衡
+#   type: select
 # - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png
 #   name: 🟨手动选择
 #   proxies:
@@ -238,27 +268,35 @@
 #   - 🇩🇪手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
 #   include-all: true
 #   name: 🧩手动其他
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png
 #   include-all: true
 #   name: 📋手动全部
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
-#   include-all: true
 #   name: 中转
+#   proxies:
+#   - 🔶自动选择
+#   - 🔷自动选择
+#   - 🟨手动选择
+#   - 🟦手动选择
+#   - 🟢故障转移
+#   - 🟣故障转移
+#   - 🔸负载均衡
+#   - 🔹负载均衡
 #   type: select
 # - disable-udp: false
+#   empty-fallback: REJECT
 #   filter: ^(?=.*(🔗)).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
@@ -266,23 +304,26 @@
 #   name: 落地
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
-#   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pornhub_2.png
+#   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram_2.png
 #   include-all: true
-#   name: Pornhub
+#   name: Instagram
 #   proxies: &id001
 #   - Proxies
 #   - 🧪实验低倍率
 #   - 🔗链式代理
 #   - DIRECT
 #   - ⛔阻断
+#   - 📋自动全部
 #   - 🟨手动选择
 #   - 🟦手动选择
 #   - 🟢故障转移
 #   - 🟣故障转移
 #   - 🔶自动选择
 #   - 🔷自动选择
+#   - 🔸负载均衡
+#   - 🔹负载均衡
 #   - 🇭🇰手动选择
 #   - 🇸🇬手动选择
 #   - 🇺🇸手动选择
@@ -313,10 +354,20 @@
 #   - 🇬🇧故障转移
 #   - 🇫🇷故障转移
 #   - 🇩🇪故障转移
+#   - 🇭🇰负载均衡
+#   - 🇸🇬负载均衡
+#   - 🇺🇸负载均衡
+#   - 🇹🇼负载均衡
+#   - 🇯🇵负载均衡
+#   - 🇰🇷负载均衡
+#   - 🇦🇺负载均衡
+#   - 🇬🇧负载均衡
+#   - 🇫🇷负载均衡
+#   - 🇩🇪负载均衡
 #   - ↩️绕过
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/icon/mini/bilibili.png
 #   include-all: true
@@ -324,7 +375,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_2.png
 #   include-all: true
@@ -332,7 +383,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
 #   include-all: true
@@ -340,7 +391,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png
 #   include-all: true
@@ -348,7 +399,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
 #   include-all: true
@@ -356,7 +407,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cloudflare.png
 #   include-all: true
@@ -364,7 +415,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Epic_Games.png
 #   include-all: true
@@ -372,7 +423,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
 #   include-all: true
@@ -380,7 +431,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
 #   include-all: true
@@ -388,7 +439,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/loneshu7/mihomo_rules_profile/refs/heads/master/icon/Twitter.png
 #   include-all: true
@@ -396,7 +447,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
 #   include-all: true
@@ -404,7 +455,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
 #   include-all: true
@@ -412,7 +463,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Discord.png
 #   include-all: true
@@ -420,7 +471,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
 #   include-all: true
@@ -428,7 +479,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/blackTangerine11/mihomo_rules_profile/master/icon/Pikpak.png
 #   include-all: true
@@ -436,7 +487,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
 #   include-all: true
@@ -444,7 +495,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 #   include-all: true
@@ -452,7 +503,7 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
 #   include-all: true
@@ -460,77 +511,77 @@
 #   proxies: *id001
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(实验)))(?!.*((?i)(🔗))).*$
+#   filter: ^(?=.*((?i)()))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
 #   include-all: true
 #   name: 🧪实验低倍率
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 #   include-all: true
 #   name: 🇭🇰手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 #   include-all: true
 #   name: 🇸🇬手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 #   include-all: true
 #   name: 🇺🇸手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 #   include-all: true
 #   name: 🇹🇼手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 #   include-all: true
 #   name: 🇯🇵手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
 #   include-all: true
 #   name: 🇰🇷手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Australia.png
 #   include-all: true
 #   name: 🇦🇺手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
 #   include-all: true
 #   name: 🇬🇧手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
 #   include-all: true
 #   name: 🇫🇷手动选择
 #   type: select
 # - disable-udp: false
-#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
 #   include-all: true
@@ -538,7 +589,7 @@
 #   type: select
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -549,7 +600,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -560,7 +611,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -571,7 +622,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -582,7 +633,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -593,7 +644,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -604,7 +655,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -615,7 +666,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -626,7 +677,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -637,7 +688,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -648,7 +699,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -659,7 +710,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -670,7 +721,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -682,7 +733,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -694,7 +745,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -706,7 +757,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -718,7 +769,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -730,7 +781,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -742,7 +793,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -754,7 +805,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -766,7 +817,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -778,7 +829,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -790,7 +841,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -802,7 +853,7 @@
 #   url: https://www.gstatic.com/generate_204
 # - disable-udp: false
 #   expected-status: 204
-#   filter: ^(?!.*((?i)(🔗|实验))).*$
+#   filter: ^(?!.*((?i)(🔗))).*$
 #   hidden: false
 #   include-all: true
 #   interval: 300
@@ -812,6 +863,127 @@
 #   tolerance: 50
 #   type: url-test
 #   url: https://www.gstatic.com/generate_204
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇭🇰负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: &id002
+#   - A-Kuromis
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇸🇬负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇺🇸负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇹🇼负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇯🇵负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇰🇷负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇦🇺负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇬🇧负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇫🇷负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
+# - disable-udp: false
+#   expected-status: 204
+#   filter: ^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗))).*$
+#   hidden: false
+#   interval: 300
+#   lazy: true
+#   name: 🇩🇪负载均衡
+#   strategy: consistent-hashing
+#   timeout: 5000
+#   type: load-balance
+#   url: https://www.gstatic.com/generate_204
+#   use: *id002
 # - hidden: true
 #   name: ↩️绕过
 #   proxies:
@@ -837,40 +1009,45 @@
 #
 # rule-providers:
 #   advertising:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/advertising.yaml
+#     path: ./rule_set/advertising.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs
 #   apple:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/apple.yaml
+#     path: ./rule_set/apple.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs
 #   bilibili:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/bilibili.yaml
+#     path: ./rule_set/bilibili.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/BiliBili/BiliBili.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs
 #   binance:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/binance.yaml
+#     path: ./rule_set/binance.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Binance/Binance.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/binance.mrs
 #   cloudflare:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/cloudflare.yaml
+#     path: ./rule_set/cloudflare.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflare/Cloudflare.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs
 #   cnip:
 #     behavior: ipcidr
 #     format: mrs
@@ -888,89 +1065,125 @@
 #     type: http
 #     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
 #   discord:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/discord.yaml
+#     path: ./rule_set/discord.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Discord/Discord.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
 #   epic:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/epic.yaml
+#     path: ./rule_set/epic.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Epic/Epic.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/epicgames.mrs
 #   gemini:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/gemini.yaml
+#     path: ./rule_set/gemini.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
 #   github:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/github.yaml
+#     path: ./rule_set/github.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
 #   google:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/google.yaml
+#     path: ./rule_set/google.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
 #   googlefcm:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/googlefcm.yaml
+#     path: ./rule_set/googlefcm.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs
+#   googleip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/googleip.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs
+#   instagram:
+#     behavior: domain
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/instagram.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs
 #   lan:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/lan.yaml
+#     path: ./rule_set/lan.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Lan/Lan.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+#   lanip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/lanip.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
 #   microsoft:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/microsoft.yaml
+#     path: ./rule_set/microsoft.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs
 #   netflix:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/netflix.yaml
+#     path: ./rule_set/netflix.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs
+#   netflixip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/netflixip.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs
 #   openai:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/openai.yaml
+#     path: ./rule_set/openai.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs
 #   pikpak:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/pikpak.yaml
+#     path: ./rule_set/pikpak.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PikPak/PikPak.yaml
-#   pornhub:
-#     behavior: classical
-#     interval: 43200
-#     path: ./rule_set/pornhub.yaml
-#     proxy: Proxies
-#     type: http
-#     url: https://raw.githubusercontent.com/dler-io/Rules/refs/heads/main/Egern/Provider/Media/Pornhub.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pikpak.mrs
 #   privacy:
 #     behavior: classical
 #     interval: 43200
@@ -979,61 +1192,77 @@
 #     type: http
 #     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Privacy/Privacy.yaml
 #   spotify:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/spotify.yaml
+#     path: ./rule_set/spotify.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs
 #   steam:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/steam.yaml
+#     path: ./rule_set/steam.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs
 #   steam_cn:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/steam_cn.yaml
+#     path: ./rule_set/steam_cn.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/SteamCN/SteamCN.yaml
-#   stream:
-#     behavior: classical
-#     interval: 43200
-#     path: ./rule_set/stream.yaml
-#     proxy: Proxies
-#     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam@cn.mrs
 #   telegram:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/telegram.yaml
+#     path: ./rule_set/telegram.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+#   telegramip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/telegramip.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
 #   tiktok:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/tiktok.yaml
+#     path: ./rule_set/tiktok.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs
 #   twitter:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/twitter.yaml
+#     path: ./rule_set/twitter.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs
+#   twitterip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 43200
+#     path: ./rule_set/twitterip.mrs
+#     proxy: Proxies
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs
 #   youtube:
-#     behavior: classical
+#     behavior: domain
+#     format: mrs
 #     interval: 43200
-#     path: ./rule_set/youtube.yaml
+#     path: ./rule_set/youtube.mrs
 #     proxy: Proxies
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
 
 # ==========================================================
 # rules（从源文件直接提取）
@@ -1053,31 +1282,47 @@
 # - DOMAIN,cdn.usefathom.com,OpenAI
 # - DOMAIN-SUFFIX,anthropic.com,OpenAI
 # - DOMAIN-SUFFIX,claude.ai,OpenAI
+# - DOMAIN,anthropic.auth0.com,OpenAI
+# - DOMAIN,anthropic-com.ghost.io,OpenAI
+# - DOMAIN,anthropic.com.cdn.cloudflare.net,OpenAI
+# - DOMAIN,browser-intake-us5-datadoghq.com,OpenAI
+# - DOMAIN,servd-anthropic-website.b-cdn.net,OpenAI
+# - DOMAIN-SUFFIX,claude.com,OpenAI
+# - DOMAIN-SUFFIX,clau.de,OpenAI
+# - DOMAIN-SUFFIX,claudemcpclient.com,OpenAI
+# - DOMAIN-SUFFIX,claudeusercontent.com,OpenAI
+# - DOMAIN-SUFFIX,twimg.com,Emby
+# - DOMAIN,stream-1.jiedaibao.gs,DIRECT
+# - IP-CIDR,154.219.102.206/32,DIRECT
+# - IP-CIDR,43.133.196.53/32,DIRECT
 # - PROCESS-NAME,com.qidian.QDReader,DIRECT
 # - DOMAIN-SUFFIX,youpin898.com,DIRECT
 # - DOMAIN-SUFFIX,youpinimg.com,DIRECT
-# - DOMAIN-SUFFIX,jianguoyun.com,Proxies
 # - DOMAIN-SUFFIX,linux.do,OpenAI
 # - RULE-SET,lan,DIRECT
-# - PROCESS-NAME,com.honjow.fehviewer,🇺🇸自动选择
+# - RULE-SET,lanip,DIRECT,no-resolve
 # - IP-CIDR,149.154.160.0/20,Emby
+# - DOMAIN-SUFFIX,synergypeak.org,DIRECT
 # - RULE-SET,steam_cn,DIRECT
 # - RULE-SET,steam,Steam
 # - RULE-SET,epic,Epic
 # - RULE-SET,twitter,Twitter
+# - RULE-SET,twitterip,Twitter,no-resolve
+# - RULE-SET,instagram,Instagram
 # - RULE-SET,spotify,Spotify
 # - RULE-SET,github,GitHub
 # - RULE-SET,pikpak,Pikpak
 # - RULE-SET,discord,Discord
 # - RULE-SET,tiktok,Tiktok
-# - RULE-SET,pornhub,Pornhub
 # - RULE-SET,gemini,OpenAI
 # - RULE-SET,openai,OpenAI
 # - RULE-SET,bilibili,Bilibili
 # - RULE-SET,youtube,YouTube
 # - RULE-SET,netflix,Netflix
+# - RULE-SET,netflixip,Netflix,no-resolve
 # - RULE-SET,google,Google
-# - RULE-SET,binance,🇺🇸自动选择
+# - RULE-SET,googleip,Google,no-resolve
+# - RULE-SET,binance,OpenAI
 # - RULE-SET,apple,Apple
 # - RULE-SET,microsoft,Microsoft
 # - RULE-SET,cloudflare,Cloudflare
@@ -1085,8 +1330,10 @@
 # - RULE-SET,cnip,DIRECT,no-resolve
 # - GEOIP,CN,DIRECT
 # - RULE-SET,telegram,Telegram
+# - RULE-SET,telegramip,Telegram,no-resolve
 # - PROCESS-NAME,com.exteragram.messenger,Telegram
 # - PROCESS-NAME,com.radolyn.ayugram,Telegram
+# - PROCESS-NAME,net.thunderbird.android,Proxies
 # - MATCH,Proxies
 
 # ==========================================================

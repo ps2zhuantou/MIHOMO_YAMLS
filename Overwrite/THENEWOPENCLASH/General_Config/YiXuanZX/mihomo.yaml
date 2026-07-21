@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomo.yaml
-# 生成日期：2026-07-05
+# 生成日期：2026-07-21
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/YiXuanZX/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -186,13 +186,13 @@
 #
 # rule-providers:
 #   ai:
-#     behavior: classical
-#     format: yaml
+#     behavior: domain
+#     format: mrs
 #     interval: 86400
-#     path: ./rule_providers/ai.yaml
+#     path: ./rule_providers/ai.mrs
 #     proxy: 代理
 #     type: http
-#     url: https://kelee.one/Tool/Clash/Rule/AI.yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
 #   china-list:
 #     behavior: domain
 #     format: mrs
@@ -340,13 +340,16 @@
 #   fake-ip-range: 198.18.0.1/16
 #   ipv6: true
 #   nameserver:
-#   - quic://dns.alidns.com
+#   - 223.5.5.5
 #   nameserver-policy:
 #     rule-set:china-list,cn:
-#     - quic://dns.alidns.com
+#     - 223.5.5.5
 #     rule-set:gfw:
 #     - https://dns.google/dns-query#代理
 #     rule-set:private:
 #     - system
+#     www.gstatic.com:
+#     - system
+#     - 119.29.29.29
 #   proxy-server-nameserver:
 #   - https://dns.alidns.com/dns-query

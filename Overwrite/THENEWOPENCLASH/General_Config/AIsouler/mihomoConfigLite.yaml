@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomoConfigLite.yaml
-# 生成日期：2026-07-05
+# 生成日期：2026-07-21
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/AIsouler/mihomoConfigLite.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -85,7 +85,7 @@
 # proxy-providers:
 #   provider1:
 #     age-secret-key: ''
-#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|⚠️|@|Expire|http|com
+#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置|以下|⚠️|@|Expire|http|com
 #     health-check:
 #       enable: true
 #       interval: 600
@@ -94,7 +94,7 @@
 #     interval: 86400
 #     override:
 #       additional-prefix: 'p1 | '
-#     path: ./proxy_providers/provider1.yaml
+#     path: ./proxy_provider/provider1.yaml
 #     proxy: DIRECT
 #     type: http
 #     url: ''
@@ -122,8 +122,20 @@
 #   - 台湾省
 #   - 低倍率节点
 #   - 高倍率节点
+#   - 手动选择
 #   - 自动选择
 #   - 其他节点
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - empty-fallback: REJECT
+#   exclude-type: DIRECT
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
+#   include-all: true
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: 手动选择
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -149,6 +161,7 @@
 #   name: AI
 #   proxies: &id001
 #   - 默认代理
+#   - 手动选择
 #   - 自动选择
 #   - 香港
 #   - 日本
@@ -179,6 +192,7 @@
 #   name: Steam
 #   proxies:
 #   - 默认代理
+#   - 手动选择
 #   - 自动选择
 #   - 直连
 #   - 香港
@@ -206,6 +220,18 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: 漏网之鱼
+#   proxies:
+#   - 默认代理
+#   - 直连
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png
 #   interval: 600
 #   lazy: true
@@ -218,18 +244,6 @@
 #   timeout: 3000
 #   type: select
 #   url: https://connectivitycheck.platform.hicloud.com/generate_204
-# - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: 漏网之鱼
-#   proxies:
-#   - 默认代理
-#   - 直连
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
 #   filter: 🇭🇰|港|HK|[Hh]ong\s*[Kk]ong
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
